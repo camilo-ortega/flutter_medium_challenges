@@ -4,8 +4,9 @@ import 'dart:convert';
 import '../models/post_model.dart';
 
 final postsProvider = FutureProvider<List<Post>>((ref) async {
-  final response =
+  final http.Response response =
       await http.get(Uri.parse('https://jsonplaceholder.typicode.com/posts'));
   final List<dynamic> data = json.decode(response.body);
+
   return data.map((json) => Post.fromJson(json)).toList();
 });

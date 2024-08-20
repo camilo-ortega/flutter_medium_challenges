@@ -4,9 +4,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 class RegisterScreen extends ConsumerWidget {
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
-  RegisterScreen({super.key});
+  RegisterScreen({
+    super.key,
+  });
+
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
@@ -16,19 +20,19 @@ class RegisterScreen extends ConsumerWidget {
         child: Column(
           children: [
             TextField(
-              controller: emailController,
+              controller: _emailController,
               decoration: const InputDecoration(labelText: 'Email'),
             ),
             TextField(
-              controller: passwordController,
+              controller: _passwordController,
               decoration: const InputDecoration(labelText: 'Password'),
               obscureText: true,
             ),
             ElevatedButton(
               onPressed: () async {
                 await ref.read(authenticationServiceProvider).signUp(
-                      email: emailController.text.trim(),
-                      password: passwordController.text.trim(),
+                      email: _emailController.text.trim(),
+                      password: _passwordController.text.trim(),
                     );
                 if (context.mounted) context.go('/');
               },

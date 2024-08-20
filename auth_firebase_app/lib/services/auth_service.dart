@@ -8,14 +8,20 @@ final authenticationServiceProvider = Provider<AuthenticationService>((ref) {
 });
 
 class AuthenticationService {
-  final Ref ref;
   AuthenticationService(this.ref);
-  Future<void> signIn({required String email, required String password}) async {
+
+  final Ref ref;
+
+  Future<void> signIn({
+    required String email,
+    required String password,
+  }) async {
     try {
-      final res = await ref
+      final UserCredential user = await ref
           .read(firebaseAuthProvider)
           .signInWithEmailAndPassword(email: email, password: password);
-      debugPrint('User: $res');
+
+      debugPrint('User: $user');
     } on FirebaseAuthException catch (e) {
       debugPrint(e.code);
     } catch (e) {

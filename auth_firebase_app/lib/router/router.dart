@@ -10,9 +10,10 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: '/',
       builder: (context, state) => const HomeScreen(),
-      redirect: (_, state) {
+      redirect: (context, state) {
         final container = ProviderContainer();
         final authState = container.read(authStateProvider);
+
         return authState == null ? '/login' : null;
       },
     ),
