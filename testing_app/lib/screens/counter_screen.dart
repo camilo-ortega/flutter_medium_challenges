@@ -2,13 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:testing_app/counter.dart';
 
 class CounterScreen extends StatefulWidget {
-  const CounterScreen({super.key});
+  const CounterScreen({
+    super.key,
+  });
+
   @override
   State<CounterScreen> createState() => _CounterScreenState();
 }
 
 class _CounterScreenState extends State<CounterScreen> {
   final Counter _counter = Counter();
+
   void _incrementCounter() {
     setState(() {
       _counter.increment();
