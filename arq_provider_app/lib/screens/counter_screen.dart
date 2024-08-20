@@ -3,7 +3,10 @@ import 'package:provider/provider.dart';
 import '../provider/counter_provider.dart';
 
 class CounterScreen extends StatelessWidget {
-  const CounterScreen({super.key});
+  const CounterScreen({
+    super.key,
+  });
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

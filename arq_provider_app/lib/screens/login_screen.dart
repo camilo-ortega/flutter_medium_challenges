@@ -4,9 +4,13 @@ import '../provider/auth_provider.dart';
 import 'counter_screen.dart';
 
 class LoginScreen extends StatelessWidget {
+  LoginScreen({
+    super.key,
+  });
+
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  LoginScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,11 +28,13 @@ class LoginScreen extends StatelessWidget {
               decoration: const InputDecoration(labelText: 'Password'),
               obscureText: true,
             ),
-            const SizedBox(height: 20),
+            const SizedBox(
+              height: 20,
+            ),
             Consumer<AuthProvider>(
               builder: (context, authProvider, child) {
                 if (authProvider.isAuthenticated) {
-                  WidgetsBinding.instance.addPostFrameCallback((_) {
+                  WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
