@@ -6,9 +6,13 @@ import '../../counter/view/counter_view.dart';
 import '../viewmodel/login_viewmodel.dart';
 
 class LoginScreen extends StatelessWidget {
+  LoginScreen({
+    super.key,
+  });
+
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  LoginScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
