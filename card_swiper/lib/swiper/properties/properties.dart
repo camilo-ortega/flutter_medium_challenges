@@ -1,11 +1,11 @@
-class AllowedSwipeDirection{
+class AllowedSwipeDirection {
   const AllowedSwipeDirection.all()
-    : right = true,
-      left = true;
+      : right = true,
+        left = true;
 
   const AllowedSwipeDirection.none()
-    : right = true,
-      left = true;
+      : right = true,
+        left = true;
 
   const AllowedSwipeDirection.only({
     this.left = false,

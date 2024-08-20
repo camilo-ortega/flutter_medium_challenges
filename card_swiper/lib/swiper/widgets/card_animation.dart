@@ -14,6 +14,7 @@ class CardAnimation {
     this.allowedSwipeDirection = const AllowedSwipeDirection.all(),
     this.onSwipeDirectionChanged,
   }) : scale = initialScale;
+
   final double initialScale;
   final Offset initialOffset;
   final AnimationController animationController;

@@ -1,18 +1,21 @@
-
 part of 'card_swiper.dart';
 
 class _CardSwiperState<T extends Widget> extends State<CardSwiper>
     with SingleTickerProviderStateMixin {
+  final _cacheIndex = CacheState<int?>(null);
+  final Queue<CardSwipeDirection> _directionHistory = Queue();
+
   late CardAnimation _cardAnimation;
   late AnimationController _animationController;
+
   SwipeType _swipeType = SwipeType.none;
   CardSwipeDirection _detectedDirection = CardSwipeDirection.none;
   CardSwipeDirection _detectedHorizontalDirection = CardSwipeDirection.none;
-  final _cacheIndex = CacheState<int?>(null);
-  final Queue<CardSwipeDirection> _directionHistory = Queue();
+
   int? get _currentIndex => _cacheIndex.state;
   int? get _nextIndex => getValidIndexOffset(1);
   bool get _canSwipe => _currentIndex != null && !widget.isDisabled;
+
   @override
   void initState() {
     super.initState();

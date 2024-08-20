@@ -1,3 +1,10 @@
-enum CardSwipeDirection {none, left, right}
+enum CardSwipeDirection {
+  none,
+  left,
+  right,
+}
 
-enum SwipeType {none, swipe}
+enum SwipeType {
+  none,
+  swipe,
+}

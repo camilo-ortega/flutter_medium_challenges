@@ -5,10 +5,13 @@ class CustomCard extends StatelessWidget {
     super.key,
     required this.index,
   });
+
   final int index;
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+
     return LayoutBuilder(builder: (context, constraints) {
       return Align(
         alignment: Alignment.center,
@@ -36,13 +39,15 @@ class CustomCard extends StatelessWidget {
 }
 
 Color getColorBasedOnNumber(int number) {
-  List<Color> colors = [
+  const List<Color> colors = [
     Colors.red,
     Colors.blue,
     Colors.green,
     Colors.yellow,
     Colors.orange,
   ];
-  int index = number % colors.length;
+
+  final int index = number % colors.length;
+
   return colors[index];
 }

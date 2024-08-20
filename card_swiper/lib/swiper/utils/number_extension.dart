@@ -1,5 +1,5 @@
 extension NumberExtension on num {
-  bool isBetween (num from, num to){
+  bool isBetween(num from, num to) {
     return from <= this && this <= to;
   }
 }
